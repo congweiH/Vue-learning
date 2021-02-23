@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el-挂载点</title>
+</head>
+<body>
+
+    <!-- 这个{{ message }} 原封不动的显示在网页中, 使用了el挂载点的地方及其后代才可以使用-->
+    {{ message }}
+
+    <!-- 用class选择器也可以正常使用，可见使用别的选择器也可以 -->
+    <div id="app" class="app">
+        {{ message }}
+        <!-- 下面的{{ message }} 可以正常被解析，可见其他标签也能使用，但是body和html标签不能使用 -->
+        <span> {{ message }} </span>
+    </div>
+    
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            // el:"#app",   
+            el:".app",
+            data:{
+                message:"hello, Vue!"
+            }
+        })
+
+    </script>
+
+</body>
+</html>
