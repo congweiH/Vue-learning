@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if指令</title>
+    <!--效果和v-if一样, 但是v-if是直接将元素注释掉，比v-show更消耗性能-->
+    <!-- 频繁切换用v-show -->
+</head>
+<body>
+
+    <div id="app">
+        <button @click="toogleIsShow">切换显示</button>
+        <p v-if="isShow">looeyWei</p>
+        <p v-show="isShow">looeyWei - v-show</p>
+        <h2 v-if="temperature>=35">热死了</h2>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                temperature: 40,
+            },
+            methods:{
+                toogleIsShow:function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

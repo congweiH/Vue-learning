@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <!-- 设置元素的属性 -->
+
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="">
+        <br>
+        <!-- v-bind 简写 -->
+        <img :src="imgSrc" alt="" :title="imgTitle" :class="isActive?'active':''" @click="toogleActive">
+        <br>
+        <!--同上面一个-->
+        <img :src="imgSrc" alt="" :title="imgTitle" :class="{active:isActive}" @click="toogleActive">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"https://scpic.chinaz.net/files/pic/pic9/202102/bpic22501.jpg",
+                imgTitle:"looeyWei",
+                isActive:false
+            },
+            methods:{
+                toogleActive:function(){
+                    this.isActive = !this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

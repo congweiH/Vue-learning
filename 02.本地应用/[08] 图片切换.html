@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+    <!--
+        用到了 v-on、v-show、v-bind
+    -->
+</head>
+<body>
+    <div id="app">
+        <button @click="prev" v-show="index!=0">上一页</button>
+        <img :src="imgArr[index]" alt="">
+        <button @click="next" v-show="index!=imgArr.length-1">下一页</button>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgArr:[
+                    "https://scpic.chinaz.net/files/pic/pic9/202102/bpic22501.jpg",
+                    "https://scpic.chinaz.net/files/pic/pic9/202102/bpic22502.jpg",
+                    "https://scpic.chinaz.net/files/pic/pic9/202102/bpic22503.jpg",
+                    "https://scpic.chinaz.net/files/pic/pic9/202102/bpic22504.jpg",
+                    "https://scpic.chinaz.net/files/pic/pic9/202102/bpic22505.jpg",
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index --;
+                },
+                next:function(){
+                    this.index ++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
